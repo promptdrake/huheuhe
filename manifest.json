@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Better Window Apps",
+  "version": "1.0.0",
+  "description": "Hi lol.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://api.groq.com/*",
+    "https://api.deepseek.com/*",
+    "https://api.biznetgio.ai/*"
+  ],
+  "icons": {
+    "16": "tes.ico",
+    "48": "tes.ico",
+    "128": "tes.ico"
+  },
+  "action": {
+    "default_title": "Better Window Apps",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "tes.ico",
+      "48": "tes.ico",
+      "128": "tes.ico"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

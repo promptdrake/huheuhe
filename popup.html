@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai Quisioner Auto response</title>
+    <style>
+      body {
+        width: 270px;
+        margin: 0;
+        padding: 10px;
+        color: #172033;
+        background: #f8fafc;
+        font: 14px Arial, sans-serif;
+      }
+
+      h1 {
+        margin: 0 0 4px;
+        font-size: 16px;
+      }
+
+      p {
+        margin: 4px 0 8px;
+        color: #526174;
+        font-size: 11px;
+      }
+
+      label,
+      legend {
+        display: block;
+        margin-top: 7px;
+        font-weight: 700;
+      }
+
+      fieldset {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      .provider {
+        display: flex;
+        gap: 4px;
+        margin-top: 4px;
+      }
+
+      .provider label {
+        flex: 1;
+        margin: 0;
+        padding: 5px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        background: #fff;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      input,
+      select,
+      button {
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 3px;
+        padding: 6px;
+        font: inherit;
+      }
+
+      input,
+      select {
+        border: 1px solid #cbd5e1;
+        border-radius: 5px;
+        background: #fff;
+      }
+
+      button {
+        border: 0;
+        border-radius: 5px;
+        color: #fff;
+        background: #2563eb;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        opacity: .6;
+        cursor: wait;
+      }
+
+      #status {
+        min-height: 14px;
+        margin: 6px 0 0;
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ai Quisioner Auto response</h1>
+    <p>Configure an AI provider, then press your keybind on a quiz page.</p>
+
+    <fieldset>
+      <legend>Select Your ai provider</legend>
+      <div class="provider">
+        <label><input type="radio" name="provider" value="groq" checked> Groq</label>
+        <label><input type="radio" name="provider" value="deepseek"> Deepseek</label>
+        <label><input type="radio" name="provider" value="biznetgio"> Biznetgio</label>
+      </div>
+    </fieldset>
+
+    <label for="apiKey">API key</label>
+    <input id="apiKey" type="password" autocomplete="off" placeholder="Enter the selected provider key">
+    <button id="validate" type="button">Validate API key</button>
+
+    <label for="model">Model</label>
+    <select id="model" disabled>
+      <option>Validate your API key first</option>
+    </select>
+
+    <label for="keybind">Keybind</label>
+    <input id="keybind" type="text" readonly placeholder="Click, then press keys">
+    <button id="save" type="button">Save settings</button>
+    <p id="status" role="status"></p>
+    <script src="popup.js"></script>
+  </body>
+</html>
